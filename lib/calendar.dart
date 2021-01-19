@@ -62,6 +62,19 @@ class Calendar {
     }
     return now.add(Duration(days: duration));
   }
+}
+class TimePeriod {
 
+  int minutes;
+  int hours;
 
+  TimePeriod(String time){
+    var array = time.split(":");
+    this.hours = int.parse(array[0]);
+    if(array[1].substring(0,1).contains("0")){ // starts with 0
+      this.minutes = int.parse(array[1].substring(1,2));
+    } else {
+      this.minutes = int.parse(array[1]);
+    }
+  }
 }
