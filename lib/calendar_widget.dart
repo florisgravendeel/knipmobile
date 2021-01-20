@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
+import 'package:knipmobile/reservation.dart';
 
 import 'appointments.dart';
 import 'appointments_widget.dart';
@@ -44,6 +45,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   }
 
   int count = -1;
+  bool validAppointment = false;
   DateTime start_date;
   DateTime end_date;
 
@@ -122,24 +124,22 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             ],
           ),
         ), floatingActionButton: Visibility(
-          visible: (count == limit),
+          visible: (count == limit) && validAppointment,
             child: FloatingActionButton(
               onPressed: () {
-                //Home.of(context).reservation.is_one_hour = appointmentsWidgetisReservationOneHour();
-                //Home.of(context).currentIndex = 1;
                 Home.of(context).reservation.start_date = start_date;
                 Home.of(context).reservation.end_date = end_date;
-                print("Start datetime: " + start_date.toString());
-                print("End datetime: " + end_date.toString());
+                Home.of(context).currentIndex = 3;
               },
               child: Icon(Icons.arrow_forward_rounded),
               backgroundColor: KnipApp.colorpallete[0],
       ),
     ),);
   }
-  void setSelectionCount(int i){
+  void setSelectionCount(int i, bool validAppointment){
     setState(() {
       count = i;
+      this.validAppointment = validAppointment;
     });
   }
   void getReservationInfo(TimePeriod p1, TimePeriod p2){

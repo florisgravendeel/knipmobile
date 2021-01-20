@@ -97,6 +97,8 @@ class _TreatmentSelectWidgetState extends State<TreatmentSelectWidget> {
           visible: _ids.isNotEmpty,
           child: FloatingActionButton(
             onPressed: () {
+              String behandelings_id = _ids.toString().replaceAll("{", "").replaceAll("}", ""); // {1, 2) => 1, 2
+              Home.of(context).reservation.behandelings_id = behandelings_id;
               Home.of(context).reservation.is_one_hour = isReservationOneHour();
               Home.of(context).currentIndex = 1;
             },

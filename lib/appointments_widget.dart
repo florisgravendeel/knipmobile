@@ -70,15 +70,17 @@ class _AppointmentsWidgetState extends State<AppointmentsWidget> {
                       decoration: BoxDecoration(
                         color: color,
                         borderRadius:
-                            new BorderRadius.all(Radius.circular(10.0)),
+                        new BorderRadius.all(Radius.circular(10.0)),
                       )),
                   onTap: () {
                     if (reserved || element.contains("e")) {
                       return;
                     }
                     setState(() {
-                      var x; var a;
-                      var y; var b;
+                      var x;
+                      var a;
+                      var y;
+                      var b;
                       if (Home.of(context).reservation.is_one_hour) {
                         switch (widget.entryColor.length) {
                           case 0:
@@ -116,6 +118,11 @@ class _AppointmentsWidgetState extends State<AppointmentsWidget> {
                             break;
                         }
                       } else {
+                        if (widget.entryColor.contains(index)) {
+                          widget.entryColor.remove(index);
+                          widget.setSelection(widget.entryColor.length, validAppointment());
+                          return;
+                        }
                         if (widget.entryColor.isNotEmpty) {
                           widget.entryColor.clear();
                         }
@@ -123,16 +130,33 @@ class _AppointmentsWidgetState extends State<AppointmentsWidget> {
                         x = entries2[index].split(" - ");
 
                         widget.getTime(TimePeriod(x[0]), TimePeriod(x[1]));
-                        widget.setSelection(widget.entryColor.length);
+                        widget.setSelection(
+                            widget.entryColor.length, validAppointment());
                         return;
                       }
-                      widget.setSelection(widget.entryColor.length);
+                      widget.setSelection(
+                          widget.entryColor.length, validAppointment());
                     });
                   },
                 );
               },
               separatorBuilder: (BuildContext context, int index) =>
-                  const Divider())),
+              const Divider())),
     );
+  }
+
+  // checkt of 2 tijdvakken onder elkaar zijn geplaatst.
+  bool validAppointment() {
+    if (widget.entryColor.length == 2) {
+      var x = widget.entryColor[0];
+      var y = widget.entryColor[1];
+      var total = (x - y);
+      if (total == 1 || total == -1) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    return true;
   }
 }
