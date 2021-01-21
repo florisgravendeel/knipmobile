@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
-import 'package:knipmobile/reservation.dart';
 
 import 'appointments.dart';
 import 'appointments_widget.dart';
@@ -56,7 +55,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
         appBar: AppBar(
           titleSpacing: 0.0,
           elevation: 5.0,
-          backgroundColor: KnipApp.colorpallete[0],
+          backgroundColor: ColorConfig.primary,
           actions: [
             IconButton(icon: Icon(Icons.refresh_sharp), onPressed: resetCalendar),
           ],
@@ -86,7 +85,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                   height: 80,
                   controller: _controller,
                   initialSelectedDate: Calendar.getFirstOpenDay(),
-                  selectionColor: KnipApp.colorpallete[0],
+                  selectionColor: ColorConfig.primary,
                   selectedTextColor: Colors.white,
                   inactiveDates: [ // De dagen waarop de kapper gesloten is.
                     monday,
@@ -132,7 +131,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 Home.of(context).currentIndex = 3;
               },
               child: Icon(Icons.arrow_forward_rounded),
-              backgroundColor: KnipApp.colorpallete[0],
+              backgroundColor: ColorConfig.primary,
       ),
     ),);
   }

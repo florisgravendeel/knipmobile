@@ -34,10 +34,11 @@ class _BarberSelectWidgetState extends State<BarberSelectWidget> {
     return MaterialApp(
       title: title,
       home: Scaffold(
+        backgroundColor: ColorConfig.secondary,
         appBar: AppBar(
           titleSpacing: 0.0,
           elevation: 5.0,
-          backgroundColor: KnipApp.colorpallete[0],
+          backgroundColor: ColorConfig.primary,
           title: Row(
             children: <Widget>[
               new IconButton(
@@ -90,7 +91,7 @@ class _BarberSelectWidgetState extends State<BarberSelectWidget> {
               Home.of(context).currentIndex = 2;
             },
             child: Icon(Icons.arrow_forward_rounded),
-            backgroundColor: KnipApp.colorpallete[0],
+            backgroundColor: ColorConfig.primary,
           ),
         ),
       ),

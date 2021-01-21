@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:knipmobile/calendar.dart';
-import 'package:knipmobile/calendar_widget.dart';
 
 import 'home_widget.dart';
 import 'main.dart';
@@ -43,7 +42,7 @@ class _AppointmentsWidgetState extends State<AppointmentsWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          color: KnipApp.colorpallete[5],
+          color: ColorConfig.secondary,
           child: ListView.separated(
               padding: const EdgeInsets.all(8),
               itemCount: widget.entries.length,
@@ -52,11 +51,11 @@ class _AppointmentsWidgetState extends State<AppointmentsWidget> {
                 bool reserved = widget.entries[index] == 'Gereserveerd!';
                 Color color;
                 if (reserved) {
-                  color = KnipApp.colorpallete[3]; // Reserved color
+                  color = Color.fromRGBO(231, 29, 54, 1.0); // Reserved color
                 } else if (widget.entryColor.contains(index)) {
                   color = Colors.green; // Selected color
                 } else {
-                  color = KnipApp.colorpallete[0]; // Default color
+                  color = ColorConfig.primary; // Default color
                 }
                 return GestureDetector(
                   child: Container(
@@ -64,7 +63,7 @@ class _AppointmentsWidgetState extends State<AppointmentsWidget> {
                       child: Center(
                           child: Text(element,
                               style: TextStyle(
-                                  color: KnipApp.colorpallete[1],
+                                  color: ColorConfig.white,
                                   fontSize: 19,
                                   fontWeight: FontWeight.w600))),
                       decoration: BoxDecoration(

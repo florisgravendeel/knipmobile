@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:knipmobile/alert.dart';
 
@@ -43,10 +40,11 @@ class _FormWidgetState extends State<FormWidget> {
     return Form(
       key: _formKey,
       child: Scaffold(
+        backgroundColor: ColorConfig.white,
         appBar: AppBar(
           titleSpacing: 0.0,
           elevation: 5.0,
-          backgroundColor: KnipApp.colorpallete[0],
+          backgroundColor: ColorConfig.primary,
           title: Row(
             children: <Widget>[
               new IconButton(
@@ -143,7 +141,7 @@ class _FormWidgetState extends State<FormWidget> {
             }
           },
           tooltip: 'Focus Second Text Field',
-          backgroundColor: KnipApp.colorpallete[0],
+          backgroundColor: ColorConfig.primary,
           child: Icon(Icons.send),
         ), // This trailing comma makes auto-formatting nicer for build methods.
       ),

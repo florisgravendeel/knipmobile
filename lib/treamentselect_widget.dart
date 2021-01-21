@@ -51,10 +51,11 @@ class _TreatmentSelectWidgetState extends State<TreatmentSelectWidget> {
     return MaterialApp(
       title: title,
       home: Scaffold(
+        backgroundColor: ColorConfig.white,
         appBar: AppBar(
           titleSpacing: 20.0,
           title: Text(title),
-          backgroundColor: KnipApp.colorpallete[0],
+          backgroundColor: ColorConfig.primary,
           actions: <Widget>[
               new IconButton(icon: const Icon(Icons.delete_forever_sharp), onPressed: (){
                 setState(() {
@@ -103,7 +104,7 @@ class _TreatmentSelectWidgetState extends State<TreatmentSelectWidget> {
               Home.of(context).currentIndex = 1;
             },
             child: Icon(Icons.arrow_forward_rounded),
-            backgroundColor: KnipApp.colorpallete[0],
+            backgroundColor: ColorConfig.primary,
           ),
         ),
       ),
