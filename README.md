@@ -1,6 +1,6 @@
 # knipmobile
 
-Kappersapplicatie knip for mobile
+Kappersapplicatie knip for iOS and Android
 
 ## Getting Started
 
